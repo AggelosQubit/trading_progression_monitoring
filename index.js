@@ -28,8 +28,8 @@ function createTradesOfTheDay(nameOfDayFile){
 	tradesEachDays.push(
 		{
 			"trades" 			: trades , 
-			"stratingCapital"	: data[data.length-1][1] , 
-			"endingCapital"		: data[0][1], 
+			"stratingCapital"	: Number(data[data.length-1][1]) , 
+			"endingCapital"		: Number(data[0][1]), 
 			"Day" 				: data[0][0].substring(0,10) , 
 			"profitLoss" 		: profitLoss,
 			"pureProfit"		: pureProfit,

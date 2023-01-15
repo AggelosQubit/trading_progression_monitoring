@@ -1,0 +1,7 @@
+Heure,Balance avant,Balance après,Profit,Action
+2023-01-12 17:01:23,302.04,303.04,+1.00,"Close long position for symbol FX_IDC:EURUSD at price 1.08020 for 2000 shares. Position AVG Price was 1.079700, currency: USD, point value: 1.000000"
+2023-01-12 16:40:26,302.98,302.04,-0.94,"Close long position for symbol FX_IDC:EURUSD at price 1.08020 for 2000 shares. Position AVG Price was 1.080670, currency: USD, point value: 1.000000"
+2023-01-12 16:24:04,302.45,302.98,+0.53,"Close long position for symbol FX_IDC:EURUSD at price 1.07923 for 6578 shares. Position AVG Price was 1.079150, currency: USD, point value: 1.000000"
+2023-01-12 16:20:28,301.28,302.45,+1.17,"Close long position for symbol FX_IDC:EURUSD at price 1.08000 for 3000 shares. Position AVG Price was 1.079610, currency: USD, point value: 1.000000"
+2023-01-12 16:08:44,303.23,301.28,-1.95,"Close long position for symbol FX_IDC:EURUSD at price 1.07690 for 3000 shares. Position AVG Price was 1.077550, currency: USD, point value: 1.000000"
+2023-01-12 16:06:03,303.46,303.23,-0.23,"Close long position for symbol FX_IDC:EURUSD at price 1.07760 for 2000 shares. Position AVG Price was 1.077715, currency: USD, point value: 1.000000"

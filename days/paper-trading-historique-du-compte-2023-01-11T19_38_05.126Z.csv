@@ -1,0 +1,6 @@
+Heure,Balance avant,Balance après,Profit,Action
+2023-01-11 21:09:18,302.56,303.46,+0.90,"Close long position for symbol CAPITALCOM:EURUSD at price 1.07560 for 4000 shares. Position AVG Price was 1.075375, currency: USD, point value: 1.000000"
+2023-01-11 16:39:47,301.39,302.56,+1.17,"Close long position for symbol CAPITALCOM:EURUSD at price 1.07697 for 3000 shares. Position AVG Price was 1.076580, currency: USD, point value: 1.000000"
+2023-01-11 16:10:53,302.59,301.39,-1.20,"Close long position for symbol CAPITALCOM:EURUSD at price 1.07649 for 3000 shares. Position AVG Price was 1.076890, currency: USD, point value: 1.000000"
+2023-01-11 15:49:12,299.55,302.59,+3.04,"Close long position for symbol CAPITALCOM:EURUSD at price 1.07732 for 4000 shares. Position AVG Price was 1.076560, currency: USD, point value: 1.000000"
+2023-01-11 15:13:19,300.00,299.55,-0.45,"Close long position for symbol CAPITALCOM:EURUSD at price 1.07463 for 3000 shares. Position AVG Price was 1.074780, currency: USD, point value: 1.000000"
