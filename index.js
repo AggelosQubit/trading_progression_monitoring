@@ -29,7 +29,7 @@ function createTradesOfTheDay(nameOfDayFile){
 		{
 			"trades" 			: trades , 
 			"stratingCapital"	: Number(data[data.length-1][1]) , 
-			"endingCapital"		: Number(data[0][1]), 
+			"endingCapital"		: Number(data[0][2]), 
 			"Day" 				: data[0][0].substring(0,10) , 
 			"profitLoss" 		: profitLoss,
 			"pureProfit"		: pureProfit,
@@ -48,17 +48,19 @@ function createObjectProgressDays(){
 		}
 		numberOfTradesLoss=tradesEachDays[i].trades.length-numberOfTradesWon
 		var WinRatio=(numberOfTradesWon *100)/tradesEachDays[i].trades.length
+		var Expectancy =(  (WinRatio/100) * ( tradesEachDays[i].pureProfit / (numberOfTradesWon==0)?1:numberOfTradesWon ) ) - ( ((100 - WinRatio)/100) * Math.abs(tradesEachDays[i].pureLoss/ (numberOfTradesLoss==0)?1:numberOfTradesLoss)  )
 		ProgressDay = {
 			"Day"				:	new Date(tradesEachDays[i].Day).toLocaleDateString() ,
 			"stratingCapital" 	: 	tradesEachDays[i].stratingCapital,
+			"endingCapital"		:	tradesEachDays[i].endingCapital,
+			"profitLoss"		: 	Number(tradesEachDays[i].profitLoss.toFixed(3)),
+			"Expectancy"		:	Number(Expectancy.toFixed(3)),
 			"numberOfTradesWon" : 	numberOfTradesWon,
 			"numberOfTradesLoss": 	numberOfTradesLoss ,
-			"WinRatio"			: 	WinRatio,
-			"endingCapital"		:	tradesEachDays[i].endingCapital,
-			"profitLoss"		: 	tradesEachDays[i].profitLoss,
-			"pureProfit"		:	tradesEachDays[i].pureProfit,
-			"pureLoss"			:	tradesEachDays[i].pureLoss,
-			"Expectancy"		:	(  (WinRatio/100) * ( tradesEachDays[i].pureProfit / numberOfTradesWon ) ) - ( ((100 - WinRatio)/100) * Math.abs(tradesEachDays[i].pureLoss/numberOfTradesLoss)  )
+			"WinRatio"			: 	Number(WinRatio.toFixed(3)),
+			"pureProfit"		:	Number(tradesEachDays[i].pureProfit.toFixed(3)),
+			"pureLoss"			:	Number(tradesEachDays[i].pureLoss.toFixed(3))
+			
 		}
 		progression.push(ProgressDay)
 	}
@@ -71,4 +73,4 @@ for(var i=0;i<DaysToMonitor;i++){
 createObjectProgressDays()
 
 
-console.log(progression)
+console.table(progression)
