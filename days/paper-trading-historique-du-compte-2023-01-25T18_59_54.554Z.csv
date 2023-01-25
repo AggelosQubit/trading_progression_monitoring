@@ -1,0 +1,7 @@
+Heure,Balance avant,Balance après,Profit,Action
+2023-01-25 13:27:04,879.16,1 038.46,+159.30,"Close short position for symbol CAPITALCOM:AUDJPY at price 91.801 for 260000 shares. Position AVG Price was 91.880538, currency: JPY, rate: 0.007703, last updated rate on 2023-01-25T12:17:21Z, point value: 1.000000"
+2023-01-25 12:24:13,853.96,879.16,+25.20,"Close short position for symbol CAPITALCOM:AUDUSD at price 0.70875 for 330000 shares. Position AVG Price was 0.708826, currency: USD, point value: 1.000000"
+2023-01-25 12:03:25,820.66,853.96,+33.31,"Close short position for symbol CAPITALCOM:AUDJPY at price 92.041 for 270000 shares. Position AVG Price was 92.057037, currency: JPY, rate: 0.007692, last updated rate on 2023-01-25T10:17:18Z, point value: 1.000000"
+2023-01-25 11:24:42,820.87,820.66,-0.21,"Close short position for symbol CAPITALCOM:AUDUSD at price 0.70853 for 3000 shares. Position AVG Price was 0.708460, currency: USD, point value: 1.000000"
+2023-01-25 01:07:19,772.31,820.87,+48.56,"Close long position for symbol CAPITALCOM:GBPJPY at price 160.677 for 130000 shares. Position AVG Price was 160.628385, currency: JPY, rate: 0.007684, last updated rate on 2023-01-24T23:17:24Z, point value: 1.000000"
+2023-01-25 00:38:56,715.71,772.31,+56.60,"Close short position for symbol CAPITALCOM:EURUSD at price 1.08840 for 260000 shares. Position AVG Price was 1.088618, currency: USD, point value: 1.000000"

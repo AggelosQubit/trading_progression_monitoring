@@ -24,12 +24,12 @@ function createTradesOfTheDay(nameOfDayFile){
 		useless=(trades[i]>0)? pureProfit+=trades[i] :  pureLoss+=trades[i];
 		
 	}
-	//console.log(trades)
+
 	tradesEachDays.push(
 		{
 			"trades" 			: trades , 
 			"stratingCapital"	: Number(data[data.length-1][1]) , 
-			"endingCapital"		: Number(data[0][2]), 
+			"endingCapital"		: Number(data[0][2].replace(/(\s+)/,"")), 
 			"Day" 				: data[0][0].substring(0,10) , 
 			"profitLoss" 		: profitLoss,
 			"pureProfit"		: pureProfit,
@@ -72,5 +72,10 @@ for(var i=0;i<DaysToMonitor;i++){
 
 createObjectProgressDays()
 
-
+var CapitalProgression = progression[progression.length-1].endingCapital - progression[0].stratingCapital
 console.table(progression)
+console.table("Capital Progression : " + CapitalProgression  )
+var linearizeGainExpectancy = CapitalProgression/progression.length
+
+console.table("linearize Gain Expectancy : " + linearizeGainExpectancy.toFixed(2)+"$ per day "  )
+console.table("linearize Gain Expectancy percentage from Starting Capital : " + ((linearizeGainExpectancy*100)/progression[0].stratingCapital).toFixed(2)+"%"  )
