@@ -28,12 +28,12 @@ function createTradesOfTheDay(nameOfDayFile){
 	tradesEachDays.push(
 		{
 			"trades" 			: trades , 
-			"stratingCapital"	: Number(data[data.length-1][1]) , 
+			"stratingCapital"	: Number(data[data.length-1][1].replace(/(\s+)/,"")) , 
 			"endingCapital"		: Number(data[0][2].replace(/(\s+)/,"")), 
 			"Day" 				: data[0][0].substring(0,10) , 
-			"profitLoss" 		: profitLoss,
-			"pureProfit"		: pureProfit,
-			"pureLoss"			: pureLoss
+			"profitLoss" 		: Number(profitLoss+"".replace(/(\s+)/,"")),
+			"pureProfit"		: Number(pureProfit+"".replace(/(\s+)/,"")),
+			"pureLoss"			: Number(pureLoss+"".replace(/(\s+)/,""))
 		}
 	)
 }
@@ -54,12 +54,13 @@ function createObjectProgressDays(){
 			"stratingCapital" 	: 	tradesEachDays[i].stratingCapital,
 			"endingCapital"		:	tradesEachDays[i].endingCapital,
 			"profitLoss"		: 	Number(tradesEachDays[i].profitLoss.toFixed(3)),
+			"pureProfit"		:	Number(tradesEachDays[i].pureProfit.toFixed(3)),
+			"pureLoss"			:	Number(tradesEachDays[i].pureLoss.toFixed(3)),
 			"Expectancy"		:	Number(Expectancy.toFixed(3)),
 			"numberOfTradesWon" : 	numberOfTradesWon,
 			"numberOfTradesLoss": 	numberOfTradesLoss ,
-			"WinRatio"			: 	Number(WinRatio.toFixed(3)),
-			"pureProfit"		:	Number(tradesEachDays[i].pureProfit.toFixed(3)),
-			"pureLoss"			:	Number(tradesEachDays[i].pureLoss.toFixed(3))
+			"WinRatio"			: 	Number(WinRatio.toFixed(3))
+
 			
 		}
 		progression.push(ProgressDay)
