@@ -5,6 +5,8 @@ var progression=[]
 var tradesEachDays=[]
 var fileNames=fs.readdirSync(dir)
 var DaysToMonitor=fileNames.length
+var totalNomberOftradeWonOnPeriod=0;
+var totalNomberOftradeLossOnPeriod=0;
 
 function createTradesOfTheDay(nameOfDayFile){
 	var trades		=[];
@@ -37,7 +39,34 @@ function createTradesOfTheDay(nameOfDayFile){
 		}
 	)
 }
+function DetermineTierTrader(){
+/*	
+	From GAIN POTENTIAL
+	Bronze Win about 20% of your trades<br/>
+	Silver Win about 30% of your trades<br/>
+	Gold Win about 40% of your trades<br/>
+	Platinum Win about 50% of your trades<br/>
+	Diamond Win about 60% of your trades<br/>
+	Master Win about 70% of your trades<br/>
+	Grand Master Win about 80% of your trades<br/>
+	Challenger Win about 90% of your trades<br/>
+*/
+	console.log("IN DetermineTierTrader");
+	let TraderCurrentTierForPeriod="";
+	var totalRatePerfOnPeriod = totalNomberOftradeWonOnPeriod  * 100 / (totalNomberOftradeWonOnPeriod + totalNomberOftradeLossOnPeriod)
+	if(totalRatePerfOnPeriod<20){TraderCurrentTierForPeriod="Bronze";}
+	if(totalRatePerfOnPeriod<30 && totalRatePerfOnPeriod>20){TraderCurrentTierForPeriod="Silver";}
+	if(totalRatePerfOnPeriod<40 && totalRatePerfOnPeriod>30){TraderCurrentTierForPeriod="Gold";}
+	if(totalRatePerfOnPeriod<50 && totalRatePerfOnPeriod>40){TraderCurrentTierForPeriod="Platinum";}
+	if(totalRatePerfOnPeriod<60 && totalRatePerfOnPeriod>50){TraderCurrentTierForPeriod="Platinum";}
+	if(totalRatePerfOnPeriod<70 && totalRatePerfOnPeriod>60){TraderCurrentTierForPeriod="Diamond";}
+	if(totalRatePerfOnPeriod<80 && totalRatePerfOnPeriod>70){TraderCurrentTierForPeriod="Master";}
+	if(totalRatePerfOnPeriod<90 && totalRatePerfOnPeriod>80){TraderCurrentTierForPeriod="Challenger";}
 
+	console.log("For the current period Analyzed your performance as been calculated to be : "+TraderCurrentTierForPeriod);
+
+
+}
 function createObjectProgressDays(){
 	console.log("IN createObjectProgressDays");
 	//Expectancy = (Win rate x Average win) - (Loss rate x Average loss)
@@ -60,9 +89,9 @@ function createObjectProgressDays(){
 			"numberOfTradesWon" : 	numberOfTradesWon,
 			"numberOfTradesLoss": 	numberOfTradesLoss ,
 			"WinRatio"			: 	Number(WinRatio.toFixed(3))
-
-			
 		}
+		totalNomberOftradeWonOnPeriod+=numberOfTradesWon;
+		totalNomberOftradeLossOnPeriod+=numberOfTradesLoss;
 		progression.push(ProgressDay)
 	}
 }
@@ -77,6 +106,7 @@ var CapitalProgression = progression[progression.length-1].endingCapital - progr
 console.table(progression)
 console.table("Capital Progression : " + CapitalProgression  )
 var linearizeGainExpectancy = CapitalProgression/progression.length
+DetermineTierTrader();
 
 console.table("linearize Gain Expectancy : " + linearizeGainExpectancy.toFixed(2)+"$ per day "  )
 console.table("linearize Gain Expectancy percentage from Starting Capital : " + ((linearizeGainExpectancy*100)/progression[0].stratingCapital).toFixed(2)+"%"  )
