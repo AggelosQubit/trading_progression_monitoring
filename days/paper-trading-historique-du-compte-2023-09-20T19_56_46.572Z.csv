@@ -1,0 +1,3 @@
+Heure,Balance avant,Balance après,P&L,Action
+2023-09-20 09:16:45,5 768.50,5 889.23,+120.74,"Close long position for symbol ACTIVTRADES:AUDNZD at price 1.08748 for 451337 shares. Position AVG Price was 1.087030, currency: NZD, rate: 0.594460, last updated rate on 2023-09-20T06:42:03Z, point value: 1.000000"
+2023-09-20 03:49:10,5 636.17,5 768.50,+132.33,"Close short position for symbol ACTIVTRADES:AUDNZD at price 1.08585 for 824350 shares. Position AVG Price was 1.086120, currency: NZD, rate: 0.594530, last updated rate on 2023-09-20T00:50:01Z, point value: 1.000000"
