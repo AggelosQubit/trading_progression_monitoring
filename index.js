@@ -41,17 +41,18 @@ function DetermineTierTrader(){
 	let TraderCurrentTierForPeriod="";
 	let totalRatePerfOnPeriod = totalNomberOftradeWonOnPeriod  * 100 / (totalNomberOftradeWonOnPeriod + totalNomberOftradeLossOnPeriod);
 
-	if(totalRatePerfOnPeriod<20){TraderCurrentTierForPeriod="Bronze";}
-	if(totalRatePerfOnPeriod<30 && totalRatePerfOnPeriod>20){TraderCurrentTierForPeriod="Silver";}
-	if(totalRatePerfOnPeriod<40 && totalRatePerfOnPeriod>30){TraderCurrentTierForPeriod="Gold";}
-	if(totalRatePerfOnPeriod<50 && totalRatePerfOnPeriod>40){TraderCurrentTierForPeriod="Platinum";}
-	if(totalRatePerfOnPeriod<60 && totalRatePerfOnPeriod>50){TraderCurrentTierForPeriod="Platinum";}
-	if(totalRatePerfOnPeriod<70 && totalRatePerfOnPeriod>60){TraderCurrentTierForPeriod="Diamond";}
-	if(totalRatePerfOnPeriod<80 && totalRatePerfOnPeriod>70){TraderCurrentTierForPeriod="Master";}
-	if(totalRatePerfOnPeriod<90 && totalRatePerfOnPeriod>80){TraderCurrentTierForPeriod="Challenger";}
+	if(totalRatePerfOnPeriod<=20){TraderCurrentTierForPeriod="Bronze";}
+	if(totalRatePerfOnPeriod<=30 && totalRatePerfOnPeriod>20){TraderCurrentTierForPeriod="Silver";}
+	if(totalRatePerfOnPeriod<=40 && totalRatePerfOnPeriod>30){TraderCurrentTierForPeriod="Gold";}
+	if(totalRatePerfOnPeriod<=50 && totalRatePerfOnPeriod>40){TraderCurrentTierForPeriod="Platinum";}
+	if(totalRatePerfOnPeriod<=60 && totalRatePerfOnPeriod>50){TraderCurrentTierForPeriod="Platinum";}
+	if(totalRatePerfOnPeriod<=70 && totalRatePerfOnPeriod>60){TraderCurrentTierForPeriod="Diamond";}
+	if(totalRatePerfOnPeriod<=80 && totalRatePerfOnPeriod>70){TraderCurrentTierForPeriod="Master";}
+	if(totalRatePerfOnPeriod<=90 && totalRatePerfOnPeriod>80){TraderCurrentTierForPeriod="Challenger";}
 
-	console.log("For the current period Analyzed your performance as been calculated to be : "+TraderCurrentTierForPeriod);
+	return TraderCurrentTierForPeriod;
 }
+
 function createObjectProgressDays(){
 	//Expectancy = (Win rate x Average win) - (Loss rate x Average loss)
 	for(let i=0;i<tradesEachDays.length;i++){
@@ -80,6 +81,25 @@ function createObjectProgressDays(){
 	}
 }
 
+GainExpectancy = () => CapitalProgression/progression.length;
+GainExpectancyPercentage = ()=> ((GainExpectancy()*100)/progression[0].startingCapital).toFixed(2);
+
+function CreateTierPerformanceThresold(){
+	totalGainPotential = DaysToMonitor * GainExpectancy();
+	let selfRelativePerformance= [];
+
+	selfRelativePerformance[0]= (totalGainPotential  * 20)/100;
+	selfRelativePerformance[1]= (totalGainPotential  * 30)/100;
+	selfRelativePerformance[2]= (totalGainPotential  * 40)/100;
+	selfRelativePerformance[3]= (totalGainPotential  * 50)/100;
+	selfRelativePerformance[4]= (totalGainPotential  * 60)/100;
+	selfRelativePerformance[5]= (totalGainPotential  * 70)/100;
+	selfRelativePerformance[6]= (totalGainPotential  * 80)/100;
+	selfRelativePerformance[7]= (totalGainPotential  * 90)/100;
+	selfRelativePerformance[8]= totalGainPotential;
+	return selfRelativePerformance;
+}
+
 for(let i=0;i<DaysToMonitor;i++){
 	createTradesOfTheDay(fileNames[i]);
 }
@@ -87,16 +107,18 @@ for(let i=0;i<DaysToMonitor;i++){
 createObjectProgressDays()
 var AnalyzedPeriodArray=[];
 var CapitalProgression = progression[progression.length-1].endingCapital - progression[0].startingCapital;
-var GainExpectancy = CapitalProgression/progression.length;
-DetermineTierTrader();
+
 
 
 console.table(progression);
 
 /*---------------------*/
-AnalyzedPeriodArray[0]= ["Capital Progression" 									, CapitalProgression.toFixed(2)+"€"];
-AnalyzedPeriodArray[1]= ["Overall Performance on the analyzed period :" 		, (  CapitalProgression * 100 / progression[0].startingCapital  ).toFixed(2)+"%"];
-AnalyzedPeriodArray[2]= ["Gain Expectancy : " 									, GainExpectancy.toFixed(2)+"€ per day "];
-AnalyzedPeriodArray[3]= ["Gain Expectancy percentage from Starting Capital : " 	, ((GainExpectancy*100)/progression[0].startingCapital).toFixed(2)+"%"];
+AnalyzedPeriodArray[0]= ["Capital Progression" 									, 	CapitalProgression.toFixed(2)+"€"];
+AnalyzedPeriodArray[1]= ["Overall Performance on the analyzed period" 			, 	(CapitalProgression * 100 / progression[0].startingCapital  ).toFixed(2)+"%"];
+AnalyzedPeriodArray[2]= ["Gain Expectancy" 										, 	GainExpectancy().toFixed(2)+"€ per day "];
+AnalyzedPeriodArray[3]= ["Gain Expectancy percentage from Starting Capital " 	,	GainExpectancyPercentage()+"%"];
+AnalyzedPeriodArray[4]= ["Trader Performance Tier" 								,	DetermineTierTrader() ];
 /*---------------------*/
 console.table(AnalyzedPeriodArray);
+/*---------------------*/
+//console.table(CreateTierPerformanceThresold());
