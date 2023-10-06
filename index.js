@@ -19,7 +19,7 @@ function createTradesOfTheDay(nameOfDayFile){
 	data.shift();
 	for(let i=0;i<data.length;i++){
 		data[i]=data[i].split(',');
-		trades[i]=( isNaN(Number(data[i][3]) ) )? Number(data[i][3].split(" ").join("")) : Number(data[i][3]);
+		trades[i]=( isNaN(Number(data[i][3]) ) )? Number(data[i][3].split(/\s+/).join("")) : Number(data[i][3]);
 
 		profitLoss+=trades[i];
 		useless=(trades[i]>0)? pureProfit+=trades[i] :  pureLoss+=trades[i];
