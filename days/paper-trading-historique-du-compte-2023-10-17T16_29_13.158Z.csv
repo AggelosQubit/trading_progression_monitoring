@@ -1,0 +1,9 @@
+Heure,Balance avant,Balance après,P&L,Action
+2023-10-17 13:33:42,8 901.99,9 034.24,+132.26,"Close long position for symbol ACTIVTRADES:GBPUSD at price 1.21799 for 508684 shares. Position AVG Price was 1.217730, currency: USD, point value: 1.000000"
+2023-10-17 13:31:12,8 891.82,8 901.99,+10.16,"Close long position for symbol ACTIVTRADES:GBPUSD at price 1.21779 for 508104 shares. Position AVG Price was 1.217770, currency: USD, point value: 1.000000"
+2023-10-17 12:45:38,8 756.85,8 891.82,+134.97,"Close long position for symbol ACTIVTRADES:GBPUSD at price 1.21510 for 964070 shares. Position AVG Price was 1.214960, currency: USD, point value: 1.000000"
+2023-10-17 12:44:41,8 686.28,8 756.85,+70.58,"Close short position for symbol ACTIVTRADES:GBPUSD at price 1.21510 for 542892 shares. Position AVG Price was 1.215230, currency: USD, point value: 1.000000"
+2023-10-17 12:43:41,8 676.64,8 686.28,+9.64,"Close short position for symbol ACTIVTRADES:GBPUSD at price 1.21516 for 964070 shares. Position AVG Price was 1.215170, currency: USD, point value: 1.000000"
+2023-10-17 12:39:43,8 665.81,8 676.64,+10.83,"Close short position for symbol ACTIVTRADES:GBPUSD at price 1.21540 for 541612 shares. Position AVG Price was 1.215420, currency: USD, point value: 1.000000"
+2023-10-17 12:38:21,8 628.06,8 665.81,+37.75,"Close short position for symbol ACTIVTRADES:GBPUSD at price 1.21539 for 539253 shares. Position AVG Price was 1.215460, currency: USD, point value: 1.000000"
+2023-10-17 12:36:57,8 603.86,8 628.06,+24.20,"Close short position for symbol ACTIVTRADES:GBPUSD at price 1.21558 for 268870 shares. Position AVG Price was 1.215670, currency: USD, point value: 1.000000"

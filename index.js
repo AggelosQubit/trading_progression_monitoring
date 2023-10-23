@@ -119,8 +119,21 @@ AnalyzedPeriodArray[0]= ["Capital Progression" 									, 	CapitalProgression.to
 AnalyzedPeriodArray[1]= ["Overall Performance on the analyzed period" 			, 	(CapitalProgression * 100 / progression[0].startingCapital  ).toFixed(2)+"%"];
 AnalyzedPeriodArray[2]= ["Gain Expectancy" 										, 	GainExpectancy().toFixed(2)+"€ per day "];
 AnalyzedPeriodArray[3]= ["Gain Expectancy percentage from Starting Capital " 	,	GainExpectancyPercentage()+"%"];
-AnalyzedPeriodArray[4]= ["Trader Performance Tier" 								,	DetermineTierTrader() ];
+AnalyzedPeriodArray[4]= ["Gain Expectancy on All tradable days" 				,	GainExpectancy().toFixed(2) * numberOfAllTradableDaysInCurrentMonth()+"€ since the beginning of the month "];
+AnalyzedPeriodArray[5]= ["Trader Performance Tier" 								,	DetermineTierTrader() ];
 /*---------------------*/
 console.table(AnalyzedPeriodArray);
 /*---------------------*/
-//console.table(CreateTierPerformanceThresold());
+console.table(CreateTierPerformanceThresold());
+
+function numberOfAllTradableDaysInCurrentMonth(){
+	let todayIndex = new Date().getDate();
+	let currentMonth = new Date().getMonth();
+	let firstDayOfCurrentMonth= new Date( (currentMonth+1)+'-01-2023').getDay();
+
+	if(firstDayOfCurrentMonth>0 && firstDayOfCurrentMonth <6){	return todayIndex - (((todayIndex%7) * 2))}					//WEEKDAY1-5 //CASE under 7 days not taken into account // Known Case
+	if(firstDayOfCurrentMonth==6){								return todayIndex - (((todayIndex%7) * 2) + 2);}			//SATURADAY 6
+	if(firstDayOfCurrentMonth==0){								return todayIndex - (( Math.floor(todayIndex/7) * 2) + 1)}	//SUNDAY 0
+}
+
+console.log(numberOfAllTradableDaysInCurrentMonth());
