@@ -121,10 +121,11 @@ AnalyzedPeriodArray[2]= ["Gain Expectancy" 										, 	GainExpectancy().toFixed
 AnalyzedPeriodArray[3]= ["Gain Expectancy percentage from Starting Capital " 	,	GainExpectancyPercentage()+"%"];
 AnalyzedPeriodArray[4]= ["Gain Expectancy on All tradable days" 				,	GainExpectancy().toFixed(2) * numberOfAllTradableDaysInCurrentMonth()+"€ since the beginning of the month "];
 AnalyzedPeriodArray[5]= ["Trader Performance Tier" 								,	DetermineTierTrader() ];
+AnalyzedPeriodArray[5]= ["Real Daily Expectancy " 								,	(CapitalProgression.toFixed(2) / numberOfAllTradableDaysInCurrentMonth()).toFixed(2)+"€"  ];
 /*---------------------*/
 console.table(AnalyzedPeriodArray);
 /*---------------------*/
-console.table(CreateTierPerformanceThresold());
+//console.table(CreateTierPerformanceThresold());
 
 function numberOfAllTradableDaysInCurrentMonth(){
 	let todayIndex = new Date().getDate();
@@ -136,4 +137,4 @@ function numberOfAllTradableDaysInCurrentMonth(){
 	if(firstDayOfCurrentMonth==0){								return todayIndex - (( Math.floor(todayIndex/7) * 2) + 1)}	//SUNDAY 0
 }
 
-console.log(numberOfAllTradableDaysInCurrentMonth());
+//console.log(numberOfAllTradableDaysInCurrentMonth());
