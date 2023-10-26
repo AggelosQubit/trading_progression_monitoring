@@ -121,7 +121,7 @@ AnalyzedPeriodArray[2]= ["Gain Expectancy" 										, 	GainExpectancy().toFixed
 AnalyzedPeriodArray[3]= ["Gain Expectancy percentage from Starting Capital " 	,	GainExpectancyPercentage()+"%"];
 AnalyzedPeriodArray[4]= ["Gain Expectancy on All tradable days" 				,	GainExpectancy().toFixed(2) * numberOfAllTradableDaysInCurrentMonth()+"€ since the beginning of the month "];
 AnalyzedPeriodArray[5]= ["Trader Performance Tier" 								,	DetermineTierTrader() ];
-AnalyzedPeriodArray[5]= ["Real Daily Expectancy " 								,	(CapitalProgression.toFixed(2) / numberOfAllTradableDaysInCurrentMonth()).toFixed(2)+"€"  ];
+AnalyzedPeriodArray[5]= ["Real Daily Expectancy" 								,	(CapitalProgression.toFixed(2) / numberOfAllTradableDaysInCurrentMonth()).toFixed(2)+"€"  ];
 /*---------------------*/
 console.table(AnalyzedPeriodArray);
 /*---------------------*/
